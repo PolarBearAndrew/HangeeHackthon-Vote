@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var app = express();
+//var app = express();
+var app = module.exports.app = exports.app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,11 +57,12 @@ app.use(function(err, req, res, next) {
     });
 });
 
+//我並沒有非常了解這行在幹麻..
+app.use(require('connect-livereload')());
+
 var port = 8080;
 app.listen(port, function(){
 	console.log('[Start] listening, port %d', port);
 });
-
-
 
 module.exports = app;
