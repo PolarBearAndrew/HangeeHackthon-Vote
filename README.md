@@ -18,7 +18,7 @@ open http://localhost:9999
 
 ##include
 
- * jade
- * bootstrap
- * jquery
- * d3
+ * [jade](http://jade-lang.com/)
+ * [bootstrap](http://getbootstrap.com/)
+ * [jquery](http://jquery.com/)
+ * [d3](https://github.com/mbostock/d3)
