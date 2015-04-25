@@ -23,12 +23,11 @@ var serverFiles = [
     'routes/*.js'
 ];
 
-
 //
 //tasks
 //
 gulp.task('bundle-js', function () {
-	return gulp.src('private/js/*.js')
+	return gulp.src('hackthonVote/private/js/*.js')
 		.pipe(concat('main.js'))
 		.pipe(rename({
 			suffix: '.min'
@@ -36,7 +35,6 @@ gulp.task('bundle-js', function () {
 		.pipe(uglify())
 		.pipe(gulp.dest('public/javascripts'))
 })
-
 
 //
 // run server & restart server
@@ -49,12 +47,11 @@ gulp.task( 'server:restart', function() {
     gulp.watch( [ 'app.js' ], server.restart );
 });
 
-
 //
 //watch
 //
 gulp.task('watch-js', function () {
-    watch('private/js/*.js', batch(function () {
+    watch('hackthonVote/private/js/*.js', batch(function () {
         gulp.start('bundle-js').start('watch-js');
     }));
 });
@@ -64,7 +61,6 @@ gulp.task('watch-js', function () {
 //        gulp.start('watch-routes').start('server-restart');
 //    }));
 //});
-
 
 //
 //default
