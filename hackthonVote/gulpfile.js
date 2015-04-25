@@ -8,7 +8,7 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var nodemon = require('gulp-nodemon');
 
-//var jshint = require('gulp-jshint');
+var jshint = require('gulp-jshint');
 
 //
 //tasks
@@ -19,7 +19,7 @@ gulp.task('bundle-js', function(){
 		.pipe( rename( { suffix : '.min' } ) )
 		.pipe( uglify() )
 		.pipe( gulp.dest('public/javascripts') )
-});
+})
 
 //gulp.task('lint', function () {
 //  gulp.src('./**/*.js')
@@ -29,11 +29,13 @@ gulp.task('bundle-js', function(){
 gulp.task('develop', function () {
   nodemon({ script: 'app.js'
           , ext: 'html js jade'
-          , ignore: ['ignored.js']})
+          , ignore: ['ignored.js']
+					, tasks: ['bundle-js']})
     .on('restart', function () {
-      console.log('--------  restarted  --------')
-    })
-});
+      console.log('--------  restarted  --------');
+    });
+})
 
 
-gulp.task('default', ['bundle-js', 'develop']);
+gulp.task('default', [
+	'develop']);

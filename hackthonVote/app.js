@@ -57,9 +57,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-//我並沒有非常了解這行在幹麻..
-app.use(require('connect-livereload')());
-
 var port = 8080;
 app.listen(port, function(){
 	console.log('[Start] listening, port %d', port);
