@@ -20,7 +20,9 @@ var options = {
  
 var serverFiles = [
     'app.js',
-    'routes/*.js'
+    'routes/*.js',
+    'models/*.js'
+	
 ];
 
 //
