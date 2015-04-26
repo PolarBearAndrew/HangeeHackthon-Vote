@@ -4,20 +4,29 @@ var models = require('../models');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	models.projects.insert({
-		teamName: '洗洗睡',
-		projectNmae : '吃飽睡'
-	}, function (err, result) {
-
+	
+	//new entity
+	var project  = new models.Project({
+		groupID : '001',
+		groupName : '測試 洗洗睡 測試',
+		projectName : 'hackthon vote',
+		projectID : '999',
+		github : 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
+		vote : 12,
+	});
+	
+	
+	//save it
+	project.save(function (err, result) {
 		if (err) {
 			console.log(err);
-			return res.send(err);
+		} else {
+			console.log('save complete', result);
 		}
-		console.log(result);
-	})
-	
+	});
+
 	res.render('index', {
-		title: 'Express'
+		title: '刷新此頁面會新增一筆測試資料在db'
 	});
 });
 
