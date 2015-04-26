@@ -16,7 +16,7 @@ npm start
 open http://localhost:9999
 ```
 
-## api
+## api (not done yet)
 
 Get all project info
 ```
