@@ -4,18 +4,18 @@ var models = require('../models');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	
+
 	//new entity
-	var project  = new models.Project({
-		groupID : '001',
-		groupName : '測試 洗洗睡 測試',
-		projectName : 'hackthon vote',
-		projectID : '999',
-		github : 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
-		vote : 12,
+	var project = new models.Project({
+		groupID: '001',
+		groupName: '測試 洗洗睡 測試',
+		projectName: 'hackthon vote',
+		projectID: '999',
+		github: 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
+		vote: 12,
 	});
-	
-	
+
+
 	//save it
 	project.save(function (err, result) {
 		if (err) {
@@ -30,28 +30,137 @@ router.get('/', function (req, res, next) {
 	});
 });
 
-router.get('/vote', function (req, res, next) {
+
+
+/*
+ * api
+ */
+
+/*
+ * api get project all
+ */
+router.get('/api/project/', function (req, res, next) {
+	//new entity
+	models.Project.find({}, function (err, data) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json(data);
+		}
+	});
+});
+
+
+/*
+ * api get project with _id
+ */
+router.get('/api/project/:id', function (req, res, next) {
+
+	var query = {
+		_id: req.params.id
+	};
+
+	//new entity
+	models.Project.find(query, function (err, data) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log('[GET] project list', result);
+			res.json(data);
+		}
+	});
+});
+
+/*
+ * api add a new project
+ */
+router.post('/api/project/new', function (req, res, next) {
+	//new entity
+	var project = new models.Project({
+		groupID: '001',
+		groupName: '測試 洗洗睡 測試',
+		projectName: 'hackthon vote',
+		projectID: '999',
+		github: 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
+		vote: 0,
+	});
+
+
+	//save it
+	project.save(function (err, result) {
+		if (err) {
+			console.log(err);
+			res.json({ err: err });
+			
+		} else {
+			console.log('[POST] project new', result);
+			res.json({ data: result });
+		}
+	});
+});
+
+/*
+ * api vote +1
+ */
+router.put('/api/project/vote/:id', function (req, res, next) {
+
+	var query = { _id: req.params.id };
+	
+	models.Project.update(query, { $inc: { vote: 1 } }, function(err, result){
+		if (err) {
+			console.log(err);
+			res.json({ err: err });
+			
+		} else {
+			console.log('[PUT] vote ', result);
+			res.json({ data: result });
+		}
+	});
+});
+
+
+/*
+ * api get vote log all
+ */
+router.get('/api/voteLog/', function (req, res, next) {
+	//new entity
+	models.Vote.find({}, function (err, data) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.json(data);
+		}
+	});
+});
+
+
+/*
+ * api vote log new
+ */
+router.post('/api/voteLog/add/:pid/:uid', function (req, res, next) {
 	
 	//new entity
-	var vote  = new models.Vote({
-		userID : 'A123456',
-		projectID : '553c9680d95685bc163f201a',
-		voteTime : Date.now()
+	var vote = new models.Vote({
+		userID: req.params.uid,
+		projectID: req.params.pid,
+		voteTime: Date.now()
 	});
-	
-	
+
+
 	//save it
 	vote.save(function (err, result) {
 		if (err) {
 			console.log(err);
+			res.json({ err: err });
+			
 		} else {
-			console.log('save complete', result);
+			console.log('[POST] voteLog new', result);
+			res.json({ data: result });
 		}
 	});
-
-	res.render('index', {
-		title: '刷新此頁面會新增一筆Vote測試資料在db'
-	});
 });
+
+
+
 
 module.exports = router;
