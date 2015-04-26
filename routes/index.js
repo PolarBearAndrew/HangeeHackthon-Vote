@@ -26,7 +26,31 @@ router.get('/', function (req, res, next) {
 	});
 
 	res.render('index', {
-		title: '刷新此頁面會新增一筆測試資料在db'
+		title: '刷新此頁面會新增一筆Project測試資料在db'
+	});
+});
+
+router.get('/vote', function (req, res, next) {
+	
+	//new entity
+	var vote  = new models.Vote({
+		userID : 'A123456',
+		projectID : '553c9680d95685bc163f201a',
+		voteTime : Date.now()
+	});
+	
+	
+	//save it
+	vote.save(function (err, result) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log('save complete', result);
+		}
+	});
+
+	res.render('index', {
+		title: '刷新此頁面會新增一筆Vote測試資料在db'
 	});
 });
 

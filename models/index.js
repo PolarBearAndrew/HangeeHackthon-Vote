@@ -2,7 +2,9 @@
 var mongoose = require('mongoose').connect('mongodb://127.0.0.1:27017/hackthonVote'),
   db = mongoose.connection;
 
-
+/*
+ *  Model Project
+ */
 var Project = new mongoose.Schema({
 	groupID : { type: String },
 	groupName : { type: String },
@@ -14,6 +16,21 @@ var Project = new mongoose.Schema({
 
 var porjectModel = db.model('projects', Project);
 
+/*
+ *  Model VoteLog
+ */
+var Vote = new mongoose.Schema({
+	userID : { type: String },
+	projectID : { type: String },
+	voteTime : { type: Date }
+});
+
+var voteLogtModel = db.model('voteLog', Vote);
+
+/*
+ *
+ */
 module.exports = {
-  Project : porjectModel
+  Project : porjectModel,
+	Vote : voteLogtModel
 };
