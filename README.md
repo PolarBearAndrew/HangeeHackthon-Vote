@@ -13,7 +13,7 @@ For Hackthon 6th final vote.
 
 ```
 npm start
-open http://localhost:9999
+open http://localhost:8080
 ```
 
 ## api (not done yet)
