@@ -2,6 +2,9 @@
 var mongoose = require('mongoose').connect('mongodb://127.0.0.1:27017/hackthonVote'),
   db = mongoose.connection;
 
+var user = {
+
+}
 /*
  *  Schema of Project
  */

@@ -15,47 +15,46 @@ var server = require( 'gulp-develop-server' );
 var livereload = require( 'gulp-livereload' );
 
 var options = {
-    path: 'app.js'
+  path: 'app.js'
 };
  
 var serverFiles = [
-    'app.js',
-    'routes/*.js',
-    'models/*.js'
-	
+  'app.js',
+  'routes/*.js',
+  'models/*.js'
 ];
 
 //
 //tasks
 //
 gulp.task('bundle-js', function () {
-	return gulp.src('hackthonVote/private/js/*.js')
-		.pipe(concat('main.js'))
-		.pipe(rename({
-			suffix: '.min'
-		}))
-		.pipe(uglify())
-		.pipe(gulp.dest('public/javascripts'))
+  return gulp.src('public/javascripts/basic.js')
+    .pipe(concat('main.js'))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest('public/javascripts'))
 })
 
 //
 // run server & restart server
 //
 gulp.task( 'server:start', function() {
-    server.listen( options, livereload.listen );
+  server.listen( options, livereload.listen );
 });
  
 gulp.task( 'server:restart', function() {
-    gulp.watch( [ 'app.js' ], server.restart );
+  gulp.watch( [ 'app.js' ], server.restart );
 });
 
 //
 //watch
 //
 gulp.task('watch-js', function () {
-    watch('hackthonVote/private/js/*.js', batch(function () {
-        gulp.start('bundle-js').start('watch-js');
-    }));
+  watch('public/javascripts/basic.js', batch(function () {
+    gulp.start('bundle-js').start('watch-js');
+  }));
 });
 
 //gulp.task('watch-routes', function () {
@@ -69,11 +68,11 @@ gulp.task('watch-js', function () {
 //
 gulp.task('default', ['watch-js', 'server:start'], function() {
     
-    function restart( file ) {
-        server.changed( function( error ) {
-            if( ! error ) livereload.changed( file.path );
-        });
-    }
+  function restart( file ) {
+    server.changed( function( error ) {
+      if( ! error ) livereload.changed( file.path );
+    });
+  }
  
-    gulp.watch( serverFiles ).on( 'change', restart );
+  gulp.watch( serverFiles ).on( 'change', restart );
 });
