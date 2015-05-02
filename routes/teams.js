@@ -35,10 +35,7 @@ router.get('/create/test', function (req, res, next) {
       console.log('[TEST] create group FAIL, err ->', err);
 			
     } else {
-			res.json( {
-					success : true,
-					result : result
-			});
+			res.json( result );
       console.log('[TEST] create group success, result ->', result);
     }
   });
@@ -59,15 +56,6 @@ router.post('/create/test', function (req, res, next) {
 	
 	team.createDate = Date.now();
 	team.vote = 0;
-	
-	if(!team.projectName){
-		team.projectName = 'none'
-		team.projectDetail = 'no detail'
-	}
-	
-	if(!team.github){
-		team.github = 'none'
-	}
 	
 	//add this info to DB
 	

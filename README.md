@@ -32,6 +32,11 @@ Create a team :洗洗睡 (for test)
 
 Create a team (for test)
 ```
+[GET] api/create/test
+```
+>input data
+
+```
 team {
 	name : String,
 	imgURL : String,
@@ -44,9 +49,6 @@ team {
 }
 ```
 
-```
-[GET] api/create/test
-```
 
 
 
