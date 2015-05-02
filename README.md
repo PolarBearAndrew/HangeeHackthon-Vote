@@ -22,19 +22,18 @@ open http://localhost:8080
 
 ## api
 
-Create a team :洗洗睡 (for test)
->data : ( no need )
+* Create a team :洗洗睡 (for test)
+>input date : none
 
 ```
 [GET] api/create/test
 ```
-
-
-Create a team (for test)
+\<br\>
+* Create a team (for test)
 ```
 [GET] api/create/test
 ```
->input data
+>input data :
 
 ```
 team {
