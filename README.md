@@ -34,7 +34,7 @@ open http://localhost:8080
 
 * Create a team
 ```
-[GET] api/create/test
+[POST] api/team
 ```
 >input data :
 ```
@@ -54,14 +54,38 @@ team {
 
 * get all teams & team's project info
 ```
-[GET] api/teams/
+[GET] api/teams
 ```
 
 
 
-* get all teams & team's project info
+* get the teams & team's project info, with id
 ```
-[GET] api/teams/:id
+[GET] api/team:id
+```
+
+
+* modify group & porject info, with id
+```
+[PUT] api/teams:id
+```
+
+
+* vote, with id
+```
+[PUT] /vote:id
+```
+
+
+* unVote, with id
+```
+[PUT] /unVote:id
+```
+
+
+* remove a team
+```
+[DELETE] /unVote:id
 ```
 
 

@@ -50,7 +50,7 @@ router.get('/create/test', function (req, res, next) {
  * 
  * [POST] create a team
  */
-router.post('/create', function (req, res, next) {
+router.post('/team', function (req, res, next) {
 	
 	var newTeam = req.body.team;
 	
@@ -102,7 +102,7 @@ router.get('/teams', function (req, res, next) {
 /* 
  * [GET] get the teams & team's project info, with id
  */
-router.get('/teams:id', function (req, res, next) {
+router.get('/team:id', function (req, res, next) {
 
   var query = { _id: req.params.id };
 
@@ -172,7 +172,7 @@ router.put('/vote:id', function (req, res, next) {
 /* 
  * [PUT] unVote, with id
  */
-router.put('/vote:id', function (req, res, next) {
+router.put('/unVote:id', function (req, res, next) {
 
   var query = { _id: req.params.id };
   
