@@ -8,12 +8,13 @@ var mongoose = require('mongoose').connect('mongodb://127.0.0.1:27017/hackthonVo
  */
 var Group = new mongoose.Schema({
 	name : { type: String },
-	members : [],
+	imgURL : { type: String },
 	projectName: { type: String },
 	projectDetail : { type: String },
 	createDate : { type: Date },
 	github: { type: String },
-	vote: { type: Number }
+	vote: { type: Number },
+	members : []
 });
 
 

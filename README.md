@@ -22,9 +22,10 @@ open http://localhost:8080
 
 ## api
 
-[GET] create a team :洗洗睡 (for test)
+Create a team :洗洗睡 (for test)
+data : ( no need )
 ```
-api/create/test
+[GET] api/create/test
 ```
 
 

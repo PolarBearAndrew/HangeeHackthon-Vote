@@ -13,6 +13,12 @@ router.get('/create/test', function (req, res, next) {
   //new entity
   var project = new models.Project({
     name: 'WashWashSeelp',
+    imgURL: 'testImg.jpg',
+		projectName: 'hackthon vote',
+		projectDetail : 'For hackthon Vote ',
+		createDate : Date.now(),
+		github: 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
+		vote: 12,
 		members :[
 			{ id : 'A001', name : 'Webber', phone : '0901000000' },
 			{ id : 'A002', name : 'Bejamin', phone : '0902000000' },
@@ -20,14 +26,8 @@ router.get('/create/test', function (req, res, next) {
 			{ id : 'A004', name : 'Dca', phone : '0904000000' },
 			{ id : 'A005', name : 'Vincent', phone : '0905000000' },
 			{ id : 'A006', name : 'Andrew', phone : '0906000000' }
-		],
-		projectName: 'hackthon vote',
-		projectDetail : 'For hackthon Vote ',
-		createDate : Date.now(),
-		github: 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
-		vote: 12
+		]
   });
-
 
   //save it
   project.save(function (err, result) {
