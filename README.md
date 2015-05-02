@@ -76,7 +76,7 @@ team {
 [PUT] /vote:id
 ```
 
-* voteS, with id[]
+* vote teamSSS, with id[]
 >input date : id Array
 
 ```
