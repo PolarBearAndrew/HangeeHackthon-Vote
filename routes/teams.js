@@ -2,32 +2,130 @@ var express = require('express');
 var router = express.Router();
 var models = require('../models');
 
-/* GET home page. */
-router.get('/project/create', function (req, res, next) {
-
+/* ====================================
+ *  TEST api
+ * 
+ * 
+ * [GET] test create team
+ */
+router.get('/create/test', function (req, res, next) {
+	
   //new entity
   var project = new models.Project({
-    groupID: '001',
-    groupName: '測試 洗洗睡 測試',
-    projectName: 'hackthon vote',
-    projectID: '999',
-    github: 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
-    vote: 12,
+    name: 'WashWashSeelp',
+		members :[
+			{ id : 'A001', name : 'Webber', phone : '0901000000' },
+			{ id : 'A002', name : 'Bejamin', phone : '0902000000' },
+			{ id : 'A003', name : 'Simon', phone : '0903000000' },
+			{ id : 'A004', name : 'Dca', phone : '0904000000' },
+			{ id : 'A005', name : 'Vincent', phone : '0905000000' },
+			{ id : 'A006', name : 'Andrew', phone : '0906000000' }
+		],
+		projectName: 'hackthon vote',
+		projectDetail : 'For hackthon Vote ',
+		createDate : Date.now(),
+		github: 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
+		vote: 12
   });
 
 
   //save it
   project.save(function (err, result) {
     if (err) {
-      console.log(err);
+      console.log('[TEST] create group FAIL, err ->', err);
+			
     } else {
-      console.log('save complete', result);
+			res.json( {
+					success : true,
+					result : result
+			});
+      console.log('[TEST] create group success, result ->', result);
     }
   });
-
-  res.json({yes:"刷新此頁面會新增一筆Project測試資料在db"});
+  
 });
 
+
+/* ====================================
+ * NEW
+ * 
+ * 
+ * [POST] create a team
+ */
+
+router.post('/create/test', function (req, res, next) {
+	
+	var team = req.body.team;
+	
+	team.createDate = Date.now();
+	team.vote = 0;
+	
+	if(!team.projectName){
+		team.projectName = 'none'
+		team.projectDetail = 'no detail'
+	}
+	
+	if(!team.github){
+		team.github = 'none'
+	}
+	
+	//add this info to DB
+	
+  var project = new models.Project(team);
+
+  project.save(function (err, result) {
+    if (err) {
+      console.log('[POST] create group FAIL, err ->', err);
+			
+    } else {
+			res.json( {
+					success : true,
+					result : result
+			});
+      console.log('[POST] create group success, result ->', result);
+    }
+  });
+  
+});
+
+
+
+/* ==================================== 
+ * SEARCH
+ * 
+ * 
+ * [GET] get all teams & team's project info
+ */
+
+
+/* 
+ * [GET] get the teams & team's project info, with id
+ */
+
+
+/* ==================================== 
+ * MODIFY
+ * 
+ * 
+ * [PUT] modify group & porject info, with id
+ */
+
+
+/* 
+ * [PUT] vote, with id
+ */
+
+
+/* 
+ * [PUT] vote, with id
+ */
+
+/* ==================================== 
+ * DELETE
+ * 
+ * 
+ * [DELETE]
+ */
 
 
 /*

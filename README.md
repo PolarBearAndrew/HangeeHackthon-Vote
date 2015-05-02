@@ -16,36 +16,11 @@ npm start
 open http://localhost:8080
 ```
 
-## api (not done yet)
+## api
 
-Get all project info
+[GET] create a team :洗洗睡 (for test)
 ```
-[GET]  /api/project/
-```
-
-Get project with _id
-```
-[GET]  /api/project/:id
-```
-
-Add a new project
-```
-[POST]  /api/project/new
-```
-
-Vote a project with _id
-```
-[PUT]  /api/project/vote/:id
-```
-
-Get all vote log 
-```
-[GET]  /api/voteLog/
-```
-
-Add a vote log
-```
-[POST]  /api/voteLog/add/:pid/:uid
+api/create/test
 ```
 
 
