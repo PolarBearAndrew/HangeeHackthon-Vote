@@ -33,10 +33,11 @@ router.get('/create/test', function (req, res, next) {
   project.save(function (err, result) {
     if (err) {
       console.log('[TEST] create group FAIL, err ->', err);
+			//res.json( err );
 			
     } else {
-			res.json( result );
       console.log('[TEST] create group success, result ->', result);
+			res.json( result );
     }
   });
   
@@ -86,17 +87,17 @@ router.post('/create', function (req, res, next) {
  * 
  * [GET] get all teams & team's project info
  */
-router.get('/', function (req, res, next) {
+router.get('/teams', function (req, res, next) {
 
   //new entity
-  models.Project.find( {}, function (err, data) {
+  models.Project.find( {}, function (err, result) {
 		
     if (err) {
       console.log('[GET] the teams info FAIL, err ->', err);
 			
     } else {
+      res.json(result);
       console.log('[GET] the teams info success', result);
-      res.json(data);
     }
   });
 });
@@ -105,19 +106,19 @@ router.get('/', function (req, res, next) {
 /* 
  * [GET] get the teams & team's project info, with id
  */
-router.get('/:id', function (req, res, next) {
+router.get('/teams:id', function (req, res, next) {
 
   var query = { _id: req.params.id };
 
   //new entity
-  models.Project.find(query, function (err, data) {
+  models.Project.find(query, function (err, result) {
 		
     if (err) {
       console.log('[GET] all teams info FIAL, err ->', err);
 			
     } else {
+      res.json(result);
       console.log('[GET] all teams info success, result ->', result);
-      res.json(data);
     }
   });
 });
@@ -129,7 +130,7 @@ router.get('/:id', function (req, res, next) {
  * 
  * [PUT] modify group & porject info, with id
  */
-router.put('/:id', function (req, res, next) {
+router.put('/teams/:id', function (req, res, next) {
 
   var query = { _id: req.params.id };
 	var newInfo = req.body.newInfo;
@@ -196,6 +197,18 @@ router.put('/vote/:id', function (req, res, next) {
  * 
  * [DELETE]
  */
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
