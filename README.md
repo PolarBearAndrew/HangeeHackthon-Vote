@@ -28,7 +28,7 @@ open http://localhost:8080
 ```
 [GET] api/create/test
 ```
-\<br\>
+\<br/\>
 * Create a team (for test)
 ```
 [GET] api/create/test
