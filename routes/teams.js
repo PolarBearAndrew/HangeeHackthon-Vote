@@ -170,6 +170,33 @@ router.put('/vote:id', function (req, res, next) {
 
 
 /* 
+ * [PUT] vote teamSSSS, with id[]
+ */
+router.put('/voteS', function (req, res, next) {
+
+  var query = { _id: req.params.id };
+  
+	query.forEach(function(id){
+		models.Team.update(id, { $inc: { vote: 1 } }, function(err, result){
+
+			if (err) {
+				console.log('[PUT] voteS, FAIL, err ->', err);
+				res.json({ err: err });
+
+			} else {
+				console.log('[PUT] voteS, success, result ->', result);
+				res.json({ data: result });
+			}
+		});
+	});
+	
+  
+});
+
+
+
+
+/* 
  * [PUT] unVote, with id
  */
 router.put('/unVote:id', function (req, res, next) {

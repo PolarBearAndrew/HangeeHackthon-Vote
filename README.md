@@ -76,6 +76,13 @@ team {
 [PUT] /vote:id
 ```
 
+* voteS, with id[]
+>input date : id Array
+
+```
+[PUT] /voteS
+```
+
 
 * unVote, with id
 ```
