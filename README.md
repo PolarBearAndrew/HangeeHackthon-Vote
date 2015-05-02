@@ -77,11 +77,11 @@ team {
 ```
 
 * vote teamSSS, with id[]
-	>	input date: id Array
 
 ```
 [PUT] /voteS
 ```
+>	input date: id Array
 
 
 * unVote, with id
