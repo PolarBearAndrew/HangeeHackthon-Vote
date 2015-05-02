@@ -77,7 +77,7 @@ team {
 ```
 
 * vote teamSSS, with id[]
->input date : id Array
+	>	input date: id Array
 
 ```
 [PUT] /voteS
