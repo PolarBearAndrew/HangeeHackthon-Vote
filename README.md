@@ -30,6 +30,24 @@ Create a team :洗洗睡 (for test)
 ```
 
 
+Create a team (for test)
+>data : 
+>team {
+>		name : String,
+>		imgURL : String,
+>		projectName : String,
+>		projectDetail : String,
+>		github : String,
+>		members : [
+>				{ id : String, name : String, phone : String }, ...	
+>		],
+>}
+
+```
+[GET] api/create/test
+```
+
+
 
 
 
