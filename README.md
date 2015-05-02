@@ -22,19 +22,21 @@ open http://localhost:8080
 
 ## api
 
-* Create a team :洗洗睡 (for test)
->input date : none
 
+
+* Create a team :洗洗睡 (for test)
 ```
 [GET] api/create/test
 ```
-\<br/\>
-* Create a team (for test)
+>input date : none
+
+
+
+* Create a team
 ```
 [GET] api/create/test
 ```
 >input data :
-
 ```
 team {
 	name : String,
@@ -48,6 +50,19 @@ team {
 }
 ```
 
+
+
+* get all teams & team's project info
+```
+[GET] api/teams/
+```
+
+
+
+* get all teams & team's project info
+```
+[GET] api/teams/:id
+```
 
 
 

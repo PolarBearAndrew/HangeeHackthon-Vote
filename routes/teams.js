@@ -50,9 +50,11 @@ router.get('/create/test', function (req, res, next) {
  * [POST] create a team
  */
 
-router.post('/create/test', function (req, res, next) {
+router.post('/create', function (req, res, next) {
 	
 	var team = req.body.team;
+	
+	console.log('team', team);
 	
 	team.createDate = Date.now();
 	team.vote = 0;
@@ -84,11 +86,41 @@ router.post('/create/test', function (req, res, next) {
  * 
  * [GET] get all teams & team's project info
  */
+router.get('/', function (req, res, next) {
+
+  //new entity
+  models.Project.find( {}, function (err, data) {
+		
+    if (err) {
+      console.log('[GET] the teams info FAIL, err ->', err);
+			
+    } else {
+      console.log('[GET] the teams info success', result);
+      res.json(data);
+    }
+  });
+});
 
 
 /* 
  * [GET] get the teams & team's project info, with id
  */
+router.get('/:id', function (req, res, next) {
+
+  var query = { _id: req.params.id };
+
+  //new entity
+  models.Project.find(query, function (err, data) {
+		
+    if (err) {
+      console.log('[GET] all teams info FIAL, err ->', err);
+			
+    } else {
+      console.log('[GET] all teams info success, result ->', result);
+      res.json(data);
+    }
+  });
+});
 
 
 /* ==================================== 
@@ -97,16 +129,66 @@ router.post('/create/test', function (req, res, next) {
  * 
  * [PUT] modify group & porject info, with id
  */
+router.put('/:id', function (req, res, next) {
+
+  var query = { _id: req.params.id };
+	var newInfo = req.body.newInfo;
+  
+  models.Project.update(query, newInfo, function(err, result){
+		
+    if (err) {
+      console.log('[PUT] modyfi team info FAIL, err->', result);
+      res.json({ err: err });
+      
+    } else {
+      console.log('[PUT] modyfi team info success, result->', result);
+      //res.json({ data: result });
+    }
+  });
+});
 
 
 /* 
  * [PUT] vote, with id
  */
+router.put('/vote/:id', function (req, res, next) {
+
+  var query = { _id: req.params.id };
+  
+  models.Project.update(query, { $inc: { vote: 1 } }, function(err, result){
+		
+    if (err) {
+      console.log('[PUT] vote, FAIL, err ->', err);
+      res.json({ err: err });
+      
+    } else {
+      console.log('[PUT] vote, success, result ->', result);
+      res.json({ data: result });
+    }
+  });
+});
 
 
 /* 
- * [PUT] vote, with id
+ * [PUT] unVote, with id
  */
+router.put('/vote/:id', function (req, res, next) {
+
+  var query = { _id: req.params.id };
+  
+  models.Project.update(query, { $inc: { vote: -1 } }, function(err, result){
+		
+    if (err) {
+      console.log('[PUT] unVote, FAIL, err ->', err);
+      res.json({ err: err });
+      
+    } else {
+      console.log('[PUT] unVote, success, result ->', result);
+      res.json({ data: result });
+    }
+  });
+});
+
 
 /* ==================================== 
  * DELETE
