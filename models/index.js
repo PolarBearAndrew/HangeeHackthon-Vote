@@ -6,7 +6,7 @@ var mongoose = require('mongoose').connect('mongodb://127.0.0.1:27017/hackthonVo
 /*
  *  Schema of Group
  */
-var Group = new mongoose.Schema({
+var Team = new mongoose.Schema({
 	name : { type: String },
 	imgURL : { type: String },
 	projectName: { type: String },
@@ -30,6 +30,6 @@ var Vote = new mongoose.Schema({
 
 //exports model
 module.exports = {
-  Project : db.model('group', Group),
+  Team : db.model('team', Team),
 	Vote : db.model('voteLog', Vote)
 };

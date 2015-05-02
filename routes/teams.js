@@ -11,7 +11,7 @@ var models = require('../models');
 router.get('/create/test', function (req, res, next) {
 	
   //new entity
-  var project = new models.Project({
+  var team = new models.Team({
     name: 'WashWashSeelp',
     imgURL: 'testImg.jpg',
 		projectName: 'hackthon vote',
@@ -30,7 +30,7 @@ router.get('/create/test', function (req, res, next) {
   });
 
   //save it
-  project.save(function (err, result) {
+  team.save(function (err, result) {
     if (err) {
       console.log('[TEST] create group FAIL, err ->', err);
 			//res.json( err );
@@ -50,29 +50,24 @@ router.get('/create/test', function (req, res, next) {
  * 
  * [POST] create a team
  */
-
 router.post('/create', function (req, res, next) {
 	
-	var team = req.body.team;
+	var newTeam = req.body.team;
 	
-	console.log('team', team);
+	//console.log('team', team);
 	
 	team.createDate = Date.now();
 	team.vote = 0;
 	
 	//add this info to DB
-	
-  var project = new models.Project(team);
+  var team = new models.Team(newTeam);
 
-  project.save(function (err, result) {
+  team.save(function (err, result) {
     if (err) {
       console.log('[POST] create group FAIL, err ->', err);
 			
     } else {
-			res.json( {
-					success : true,
-					result : result
-			});
+			res.json( result );
       console.log('[POST] create group success, result ->', result);
     }
   });
@@ -90,7 +85,7 @@ router.post('/create', function (req, res, next) {
 router.get('/teams', function (req, res, next) {
 
   //new entity
-  models.Project.find( {}, function (err, result) {
+  models.Team.find( {}, function (err, result) {
 		
     if (err) {
       console.log('[GET] the teams info FAIL, err ->', err);
@@ -103,6 +98,7 @@ router.get('/teams', function (req, res, next) {
 });
 
 
+
 /* 
  * [GET] get the teams & team's project info, with id
  */
@@ -111,7 +107,7 @@ router.get('/teams:id', function (req, res, next) {
   var query = { _id: req.params.id };
 
   //new entity
-  models.Project.find(query, function (err, result) {
+  models.Team.findOne(query, function (err, result) {
 		
     if (err) {
       console.log('[GET] all teams info FIAL, err ->', err);
@@ -124,18 +120,19 @@ router.get('/teams:id', function (req, res, next) {
 });
 
 
+
 /* ==================================== 
  * MODIFY
  * 
  * 
  * [PUT] modify group & porject info, with id
  */
-router.put('/teams/:id', function (req, res, next) {
+router.put('/teams:id', function (req, res, next) {
 
   var query = { _id: req.params.id };
 	var newInfo = req.body.newInfo;
   
-  models.Project.update(query, newInfo, function(err, result){
+  models.Team.update(query, newInfo, function(err, result){
 		
     if (err) {
       console.log('[PUT] modyfi team info FAIL, err->', result);
@@ -149,14 +146,15 @@ router.put('/teams/:id', function (req, res, next) {
 });
 
 
+
 /* 
  * [PUT] vote, with id
  */
-router.put('/vote/:id', function (req, res, next) {
+router.put('/vote:id', function (req, res, next) {
 
   var query = { _id: req.params.id };
   
-  models.Project.update(query, { $inc: { vote: 1 } }, function(err, result){
+  models.Team.update(query, { $inc: { vote: 1 } }, function(err, result){
 		
     if (err) {
       console.log('[PUT] vote, FAIL, err ->', err);
@@ -170,14 +168,15 @@ router.put('/vote/:id', function (req, res, next) {
 });
 
 
+
 /* 
  * [PUT] unVote, with id
  */
-router.put('/vote/:id', function (req, res, next) {
+router.put('/vote:id', function (req, res, next) {
 
   var query = { _id: req.params.id };
   
-  models.Project.update(query, { $inc: { vote: -1 } }, function(err, result){
+  models.Team.update(query, { $inc: { vote: -1 } }, function(err, result){
 		
     if (err) {
       console.log('[PUT] unVote, FAIL, err ->', err);
@@ -195,149 +194,25 @@ router.put('/vote/:id', function (req, res, next) {
  * DELETE
  * 
  * 
- * [DELETE]
+ * [DELETE] remove a team
  */
+router.delete('/teams:id', function (req, res, next) {
 
+	var query = { _id: req.params.id };
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
- * api
- */
-
-/*
- * api get project all
- */
-router.get('/project/getAll', function (req, res, next) {
-  //new entity
-  models.Project.find({}, function (err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(data);
-    }
-  });
+	models.Team.remove(query, function (err) {
+		if(err){
+			console.log('[DELETE] delete team FAIL, err ->', err);
+		}else{
+			console.log('[DELETE] delete team success ');
+		}
+		res.end();
+	});
 });
 
 
-/*
- * api get project with _id
- */
-router.get('/project/get/:id', function (req, res, next) {
-
-  var query = {
-    _id: req.params.id
-  };
-
-  //new entity
-  models.Project.find(query, function (err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('[GET] project list', result);
-      res.json(data);
-    }
-  });
-});
-
-/*
- * api add a new project
- */
-router.post('/api/project/new', function (req, res, next) {
-  //new entity
-  var project = new models.Project({
-    groupID: '001',
-    groupName: '測試 洗洗睡 測試',
-    projectName: 'hackthon vote',
-    projectID: '999',
-    github: 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
-    vote: 0,
-  });
 
 
-  //save it
-  project.save(function (err, result) {
-    if (err) {
-      console.log(err);
-      res.json({ err: err });
-      
-    } else {
-      console.log('[POST] project new', result);
-      res.json({ data: result });
-    }
-  });
-});
-
-/*
- * api vote +1
- */
-router.put('/project/updateVote/:id', function (req, res, next) {
-
-  var query = { _id: req.params.id };
-  
-  models.Project.update(query, { $inc: { vote: 1 } }, function(err, result){
-    if (err) {
-      console.log(err);
-      res.json({ err: err });
-      
-    } else {
-      console.log('[PUT] vote ', result);
-      res.json({ data: result });
-    }
-  });
-});
-
-
-/*
- * api get vote log all
- */
-router.get('/api/voteLog/', function (req, res, next) {
-  //new entity
-  models.Vote.find({}, function (err, data) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(data);
-    }
-  });
-});
-
-
-/*
- * api vote log new
- */
-router.post('/api/voteLog/add/:pid/:uid', function (req, res, next) {
-  
-  //new entity
-  var vote = new models.Vote({
-    userID: req.params.uid,
-    projectID: req.params.pid,
-    voteTime: Date.now()
-  });
-
-
-  //save it
-  vote.save(function (err, result) {
-    if (err) {
-      console.log(err);
-      res.json({ err: err });
-      
-    } else {
-      console.log('[POST] voteLog new', result);
-      res.json({ data: result });
-    }
-  });
-});
 
 
 
