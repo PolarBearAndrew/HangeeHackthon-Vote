@@ -2,6 +2,10 @@
 
 For Hackthon 6th final vote. 
 
+## Flow
+
+![流程圖](flow.png)
+
 ## pre-install
 
  * node.js@0.10.26
