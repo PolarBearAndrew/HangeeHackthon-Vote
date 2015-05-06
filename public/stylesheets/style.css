@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+.portfolio-item {
+  margin-bottom: 25px;
+}
+.works-info{
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+  position: relative;
+  margin-top: -55px;
+  height: 55px;
+  padding: 5px;
+}
