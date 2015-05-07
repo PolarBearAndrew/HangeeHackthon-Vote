@@ -15,4 +15,48 @@ a {
   margin-top: -55px;
   height: 55px;
   padding: 5px;
+  border-radius: 0px 0px 10px 10px;
+}
+.checkbox{
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  margin: 0;
+}
+.team-box{
+  position: relative;
+  cursor: pointer;
+}
+.team-box img{
+  border: 3px solid rgba(255,255,255,0);
+  transition: all .2s linear;
+  border-radius: 10px;
+}
+input[type=checkbox] {
+    display: none;
+}
+input[type=checkbox]:checked + label i.glyphicon-thumbs-up{
+  background:#2ecc71;
+  color:#fff;
+  cursor:pointer;
+}
+input[type=checkbox]:checked + label + a img{
+  border: 3px solid #2ecc71;
+}
+.up:hover{
+  background:#2ecc71;
+  color:#fff;
+  cursor:pointer;
+}
+.up{
+  border-radius: 10px;
+  color: rgba(255,255,255,0.5);
+  float: left;
+  font-size: 35px;
+  height: 100%;
+  line-height: 45px;
+  text-align: center;
+  transition: all .2s linear;
+  width: 45px;
 }
