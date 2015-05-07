@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var results = require('./routes/results');
 
 /*
  * teams
@@ -32,6 +33,7 @@ app.use(express.static(__dirname + '/bower_components'));
 app.use('/', index);
 app.use('/api', teams);
 app.use('/users', users);
+app.use('/results', results);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
