@@ -40,9 +40,13 @@ html(lang='en', mode='normal')
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li(style="margin-top:9px;")
-              button.btn.btn-success.tab(href='#' data-toggle='modal' data-target='.upload-modal') 建立隊伍
+              button.btn.btn-success.tab(data-toggle="modal" data-target=".bs-example-modal-lg") 建立隊伍
+            li(style="margin-top:9px;")
+              button.btn.btn-info.tab(onclick="window.location.href='/results'") 投票結果
+            
     block content
     
+    include dialog
     .container
       hr
       footer

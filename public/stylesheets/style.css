@@ -12,8 +12,8 @@ a {
 .works-info{
   background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
   position: relative;
-  margin-top: -55px;
-  height: 55px;
+  margin: -55px 3px 0 2px;
+  height: 52px;
   padding: 5px;
   border-radius: 0px 0px 10px 10px;
 }
@@ -59,4 +59,7 @@ input[type=checkbox]:checked + label + a img{
   text-align: center;
   transition: all .2s linear;
   width: 45px;
+}
+.tab{
+  margin-right: 5px;
 }
