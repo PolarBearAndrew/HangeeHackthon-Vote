@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
 
 	models.Team.find( {}, function (err, result) {
 
-		console.log('###test', result[0].name)
+		// console.log('###test', result[0].name)
 
 	    if (err) {
 	      console.log('[GET] the teams info FAIL, err ->', err);
