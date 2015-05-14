@@ -16,6 +16,11 @@ block content
           label.checkbox(for="slideOne"+x+i)
             i.glyphicon.glyphicon-thumbs-up.up
           a
-            img.img-responsive(src='http://placehold.it/750x450', alt='')
+            - if( data[i].imgURL )
+              img.img-responsive(src= data[i].imgURL, alt='')
+            - else
+              img.img-responsive(src='http://placehold.it/750x450', alt='')
           .works-info
-            | 洗洗睡
+            = data[i].name
+
+            = data[i].projectName

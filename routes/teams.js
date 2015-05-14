@@ -4,12 +4,12 @@ var models = require('../models');
 
 /* ====================================
  *  TEST api
- * 
- * 
+ *
+ *
  * [GET] test create team
  */
 router.get('/create/test', function (req, res, next) {
-	
+
   //new entity
   var team = new models.Team({
     name: 'WashWashSeelp',
@@ -34,62 +34,62 @@ router.get('/create/test', function (req, res, next) {
     if (err) {
       console.log('[TEST] create group FAIL, err ->', err);
 			//res.json( err );
-			
+
     } else {
       console.log('[TEST] create group success, result ->', result);
 			res.json( result );
     }
   });
-  
+
 });
 
 
 /* ====================================
  * NEW
- * 
- * 
+ *
+ *
  * [POST] create a team
  */
 router.post('/team', function (req, res, next) {
-	
+
 	var newTeam = req.body.team;
-	
+
 	//console.log('team', team);
-	
+
 	team.createDate = Date.now();
 	team.vote = 0;
-	
+
 	//add this info to DB
   var team = new models.Team(newTeam);
 
   team.save(function (err, result) {
     if (err) {
       console.log('[POST] create group FAIL, err ->', err);
-			
+
     } else {
 			res.json( result );
       console.log('[POST] create group success, result ->', result);
     }
   });
-  
+
 });
 
 
 
-/* ==================================== 
+/* ====================================
  * SEARCH
- * 
- * 
+ *
+ *
  * [GET] get all teams & team's project info
  */
 router.get('/teams', function (req, res, next) {
 
   //new entity
   models.Team.find( {}, function (err, result) {
-		
+
     if (err) {
       console.log('[GET] the teams info FAIL, err ->', err);
-			
+
     } else {
       res.json(result);
       console.log('[GET] the teams info success', result);
@@ -99,7 +99,7 @@ router.get('/teams', function (req, res, next) {
 
 
 
-/* 
+/*
  * [GET] get the teams & team's project info, with id
  */
 router.get('/team:id', function (req, res, next) {
@@ -108,10 +108,10 @@ router.get('/team:id', function (req, res, next) {
 
   //new entity
   models.Team.findOne(query, function (err, result) {
-		
+
     if (err) {
       console.log('[GET] all teams info FIAL, err ->', err);
-			
+
     } else {
       res.json(result);
       console.log('[GET] all teams info success, result ->', result);
@@ -121,23 +121,23 @@ router.get('/team:id', function (req, res, next) {
 
 
 
-/* ==================================== 
+/* ====================================
  * MODIFY
- * 
- * 
+ *
+ *
  * [PUT] modify group & porject info, with id
  */
 router.put('/teams:id', function (req, res, next) {
 
   var query = { _id: req.params.id };
 	var newInfo = req.body.newInfo;
-  
+
   models.Team.update(query, newInfo, function(err, result){
-		
+
     if (err) {
       console.log('[PUT] modyfi team info FAIL, err->', result);
       res.json({ err: err });
-      
+
     } else {
       console.log('[PUT] modyfi team info success, result->', result);
       //res.json({ data: result });
@@ -147,19 +147,19 @@ router.put('/teams:id', function (req, res, next) {
 
 
 
-/* 
+/*
  * [PUT] vote, with id
  */
 router.put('/vote:id', function (req, res, next) {
 
   var query = { _id: req.params.id };
-  
+
   models.Team.update(query, { $inc: { vote: 1 } }, function(err, result){
-		
+
     if (err) {
       console.log('[PUT] vote, FAIL, err ->', err);
       res.json({ err: err });
-      
+
     } else {
       console.log('[PUT] vote, success, result ->', result);
       res.json({ data: result });
@@ -169,13 +169,13 @@ router.put('/vote:id', function (req, res, next) {
 
 
 
-/* 
+/*
  * [PUT] vote teamSSSS, with id[]
  */
 router.put('/voteS', function (req, res, next) {
 
   var query = { _id: req.params.id };
-  
+
 	query.forEach(function(id){
 		models.Team.update(id, { $inc: { vote: 1 } }, function(err, result){
 
@@ -189,26 +189,26 @@ router.put('/voteS', function (req, res, next) {
 			}
 		});
 	});
-	
-  
+
+
 });
 
 
 
 
-/* 
+/*
  * [PUT] unVote, with id
  */
 router.put('/unVote:id', function (req, res, next) {
 
   var query = { _id: req.params.id };
-  
+
   models.Team.update(query, { $inc: { vote: -1 } }, function(err, result){
-		
+
     if (err) {
       console.log('[PUT] unVote, FAIL, err ->', err);
       res.json({ err: err });
-      
+
     } else {
       console.log('[PUT] unVote, success, result ->', result);
       res.json({ data: result });
@@ -217,10 +217,10 @@ router.put('/unVote:id', function (req, res, next) {
 });
 
 
-/* ==================================== 
+/* ====================================
  * DELETE
- * 
- * 
+ *
+ *
  * [DELETE] remove a team
  */
 router.delete('/teams:id', function (req, res, next) {
