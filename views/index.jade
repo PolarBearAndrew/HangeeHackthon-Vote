@@ -5,16 +5,17 @@ block content
       .row
         .col-lg-12
           h1.page-header
-            | Hackathon Taiwan 作品 
+            | Hackathon Taiwan 作品
             small 請投下您神聖的票
-      - for (var x = 0; x < 5; x++)
-        .row
-          - for (var y = 0; y < 4; y++)
-            label.col-md-3.portfolio-item.team-box(for="slideOne"+x+y)
-              input(type="checkbox" value="None" id="slideOne"+x+y name="check")
-              label.checkbox(for="slideOne"+x+y)
-                i.glyphicon.glyphicon-thumbs-up.up
-              a
-                img.img-responsive(src='http://placehold.it/750x450', alt='')
-              .works-info
-                | 洗洗睡
+      - var x = 0
+      - for (var i = 0; i < 20; i++)
+        - if( i %4 == 0 )
+          .row
+        label.col-md-3.portfolio-item.team-box(for="slideOne"+x+i)
+          input(type="checkbox" value="None" id="slideOne"+x+i name="check")
+          label.checkbox(for="slideOne"+x+i)
+            i.glyphicon.glyphicon-thumbs-up.up
+          a
+            img.img-responsive(src='http://placehold.it/750x450', alt='')
+          .works-info
+            | 洗洗睡

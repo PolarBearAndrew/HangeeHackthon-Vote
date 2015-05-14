@@ -6,7 +6,7 @@ var models = require('../models');
 router.get('/', function (req, res, next) {
   console.log(req.route)
 	res.render('index', {
-		title: '我是首頁',
+		title: 'Hackathon 6th Vote',
     path: req.route
 	});
 });
