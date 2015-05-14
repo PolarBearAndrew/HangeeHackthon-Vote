@@ -7,7 +7,8 @@ router.get('/', function (req, res, next) {
   console.log(req.route)
 	res.render('index', {
 		title: 'Hackathon 6th Vote',
-    path: req.route
+		data: ['', '', '', '', '', '', '', '', '', ''],
+    	path: req.route
 	});
 });
 

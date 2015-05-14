@@ -8,7 +8,7 @@ block content
             | Hackathon Taiwan 作品
             small 請投下您神聖的票
       - var x = 0
-      - for (var i = 0; i < 20; i++)
+      - for (var i = 0; i < data.length; i++)
         - if( i %4 == 0 )
           .row
         label.col-md-3.portfolio-item.team-box(for="slideOne"+x+i)
