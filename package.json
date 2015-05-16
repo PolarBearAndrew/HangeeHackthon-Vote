@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "body-parser": "~1.10.2",
+    "bower": "^1.3.12",
     "connect-livereload": "^0.5.3",
     "cookie-parser": "~1.3.3",
     "debug": "~2.1.1",
@@ -15,8 +16,8 @@
     "jade": "~1.9.1",
     "mongoose": "^4.0.2",
     "morgan": "~1.5.1",
-    "serve-favicon": "~2.2.0",
-    "bower": "^1.3.12"
+    "multer": "^0.1.8",
+    "serve-favicon": "~2.2.0"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
@@ -28,6 +29,5 @@
     "gulp-batch": "~1.0.5",
     "gulp-develop-server": "~0.4.2",
     "gulp-livereload": "~3.8.0"
-    
   }
 }
