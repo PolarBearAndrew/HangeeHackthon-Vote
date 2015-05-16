@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+var multer  = require('multer')
 
 /* ====================================
  *  TEST api
@@ -50,11 +51,12 @@ router.get('/create/test', function (req, res, next) {
  *
  * [POST] create a team
  */
-router.post('/team', function (req, res, next) {
+router.post('/team', [ multer({ dest: './uploads/'}), function (req, res, next) {
 
 	var newTeam = req.body.team;
 
-	//console.log('team', team);
+  console.log('req.body!!!!!!', req.body);
+  console.log('req.files!!!', req.files);
 
 	team.createDate = Date.now();
 	team.vote = 0;
@@ -72,7 +74,7 @@ router.post('/team', function (req, res, next) {
     }
   });
 
-});
+}]);
 
 
 

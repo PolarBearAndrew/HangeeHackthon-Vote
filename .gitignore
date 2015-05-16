@@ -1,5 +1,7 @@
 npm-debug.log
 bower_components/
 node_modules/
+uploads/
+
 .tmp
 .DS_Store
