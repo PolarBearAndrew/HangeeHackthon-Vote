@@ -4,7 +4,7 @@ For Hackthon 6th final vote.
 
 ## Flow
 
-![流程圖](flow.png)
+![流程圖](public/images/flow.png)
 
 ## pre-install
 
