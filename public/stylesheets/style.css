@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -62,4 +62,47 @@ input[type=checkbox]:checked + label + a img{
 }
 .tab{
   margin-right: 5px;
+}
+.wrap {
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+}
+.wrap .full {
+  -moz-transform: translate3d(-17%, -15%, 0);
+  -webkit-transform: translate3d(-17%, -15%, 0);
+  transform: translate3d(-17%, -15%, 0);
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  -webkit-filter: brightness(0.5) grayscale(0.7) blur(2px);
+}
+.dot-overlay {
+  background-image: url(../images/dot.png);
+  max-height:500px;
+}
+.layer {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+.page-header{
+  margin:100px 0 20px;
+}
+h1.page-header{
+  color:#fff;
+  font-size:80px;
+  padding:50px;
+  text-shadow: 3px 3px 3px rgba(24, 15, 15, 0.5);
+
+}
+h1.page-header small{
+  color:#EDEF95;
+}
+nav.gag-nav.navbar.navbar-inverse.navbar-fixed-top.dark-blue {
+  color: #fff;
+  background-color: #203349;
+  border-color: #576676;
 }

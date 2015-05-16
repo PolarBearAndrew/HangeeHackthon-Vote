@@ -1,11 +1,17 @@
 extends layout
 
 block content
+
   .container
+     .video
+    .wrap
+        iframe#hero.full(src='//www.youtube.com/embed/uHgbfzNqduc?list=123?controls=0&autoplay=1&showinfo=0&iv_load_policy=3&start=0&version=3&loop=1&playlist=uHgbfzNqduc', frameborder='0')
+    .layer.dot-overlay
       .row
         .col-lg-12
           h1.page-header
             | Hackathon Taiwan 作品
+            br
             small 請投下您神聖的票
       - var x = 0
       - for (var i = 0; i < data.length; i++)
