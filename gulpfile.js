@@ -48,7 +48,7 @@ gulp.task( 'server:restart', function() {
 //});
 
 //default
-gulp.task('default', ['watch-js', 'server:start'], function() {
+gulp.task('default', [/*'watch-js', */'server:start'], function() {
   function restart( file ) {
     server.changed( function( error ) {
       if( ! error ) livereload.changed( file.path );
