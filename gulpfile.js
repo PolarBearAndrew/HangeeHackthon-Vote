@@ -21,15 +21,15 @@ var serverFiles = [
 ];
 
 //tasks
-gulp.task('bundle-js', function () {
-  return gulp.src('hackthonVote/private/js/*.js')
-  .pipe(concat('main.js'))
-  .pipe(rename({
-    suffix: '.min'
-  }))
-  .pipe(uglify())
-  .pipe(gulp.dest('public/javascripts'))
-})
+//gulp.task('bundle-js', function () {
+//  return gulp.src('hackthonVote/private/js/*.js')
+//  .pipe(concat('main.js'))
+//  .pipe(rename({
+//    suffix: '.min'
+//  }))
+//  .pipe(uglify())
+//  .pipe(gulp.dest('public/javascripts'))
+//})
 
 // run server & restart server
 gulp.task( 'server:start', function() {
@@ -41,11 +41,11 @@ gulp.task( 'server:restart', function() {
 });
 
 //watch
-gulp.task('watch-js', function () {
-    watch('hackthonVote/private/js/*.js', batch(function () {
-        gulp.start('bundle-js').start('watch-js');
-    }));
-});
+//gulp.task('watch-js', function () {
+//  watch('hackthonVote/private/js/*.js', batch(function () {
+//      gulp.start('bundle-js').start('watch-js');
+//  }));
+//});
 
 //default
 gulp.task('default', ['watch-js', 'server:start'], function() {
