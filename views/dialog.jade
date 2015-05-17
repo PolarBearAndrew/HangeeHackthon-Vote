@@ -1,6 +1,6 @@
 .modal.fade.bs-example-modal-lg(tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true")
   .modal-dialog.modal-lg
-    form#creatTeam.modal-content(action="/api/team")
+    form#creatTeam.modal-content(action="/createTeam" method="post" enctype="multipart/form-data")
       .modal-header
         botton.close(type="button" aria-label="Close" data-dismiss="modal")
           span(aria-hidden="true") &times;
@@ -10,29 +10,23 @@
 
         .form-group.col-md-6
           label(for="teamName") TEAM NAME
-          input#teamName.form-control(type="text" placeholder="TEAM NAME")
+          input.form-control(name="name" type="text" placeholder="TEAM NAME")
         .form-group.col-md-6
           label(for="projectName") PROJECT NAME
-          input#projectName.form-control(type="text" placeholder="PROJECT NAME")
-        .form-group.col-md-6
-          label(for="projectDetail") PROJECT DETAIL
-          input#projectDetail.form-control(type="text" placeholder="PROJECT DETAIL")
-        .form-group.col-md-6
-          label(for="github") GITHUB
-          input#github.form-control(type="text" placeholder="GITHUB")
+          input.form-control(name="projectName" type="text" placeholder="PROJECT NAME")
         .form-group.col-md-12
           label(for="imgURL") TEAM PICTURE
-          input#imgURL(type="file")
+          input(type="file" name="imgURL")
         .form-group.col-md-12
           label TEAM MEMBER
         - for( x = 1; x<=6; x++ )
           .member
             .form-group.col-md-4
-              input.form-control(id="id#{x}" type="text" placeholder="ID#{x}")
+              input.form-control(name="id#{x}" type="text" placeholder="ID#{x}")
             .form-group.col-md-4
-              input.form-control(id="name#{x}" type="text" placeholder="NAME#{x}")
+              input.form-control(name="name#{x}" type="text" placeholder="NAME#{x}")
             .form-group.col-md-4
-              input.form-control(id="phone#{x}" type="text" placeholder="PHONE#{x}")
+              input.form-control(name="phone#{x}" type="text" placeholder="PHONE#{x}")
         .clearfix
       .modal-footer
         button.btn.btn-default(type="button" data-dismiss="modal")
