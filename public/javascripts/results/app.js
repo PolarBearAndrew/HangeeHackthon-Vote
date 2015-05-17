@@ -9,7 +9,8 @@ $.ajax({
   type: 'GET',
   success: function(data){
 
-    console.log('data', data);
+    //console.log('data', data);
+    //console.log('count', data.length);
 
     require(
       [

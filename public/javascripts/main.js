@@ -53,6 +53,12 @@ $(function(){
 
   $('#submitVote').click(function( event ){
 
+
+    if(localStorage.hackathonVote){
+      alert('投過票囉 QAQ');
+      return ;
+    }
+
     //var data = ['55580d3ba4c4bf901e4fcdfb', '55580d47a4c4bf901e4fcdff'];
     var inputs = $('input:checked');
     var data = [];
@@ -73,6 +79,9 @@ $(function(){
       success: function(data){
         //console.log('vote success')
         window.location = "http://localhost:8080/results";
+
+        localStorage.setItem("hackathonVote", "true");
+
       },
       error: function(err){
         console.log('err', err)
