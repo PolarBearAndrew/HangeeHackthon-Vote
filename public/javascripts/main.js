@@ -88,4 +88,12 @@ $(function(){
       }
     });
   });
+
+  $( "#submitVotebanner" ).click(function() {
+    console.log('scroll!!');
+    $('html, body').animate({
+        scrollTop: $("label[for=slideOne0]").offset().top -58
+    }, 500);
+  });
+
 })
