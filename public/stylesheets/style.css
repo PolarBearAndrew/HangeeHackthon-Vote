@@ -96,7 +96,8 @@ h1.page-header{
   font-size:80px;
   padding:50px;
   text-shadow: 3px 3px 3px rgba(24, 15, 15, 0.5);
-
+  position: absolute;
+  top: 0;
 }
 h1.page-header small{
   color:#EDEF95;
@@ -108,7 +109,7 @@ nav.gag-nav.navbar.navbar-inverse.navbar-fixed-top.dark-blue {
 }
 
 .container{
-  background-color: red;
+  /*background-color: red;*/
 }
 
 /*result*/
@@ -121,11 +122,37 @@ nav.gag-nav.navbar.navbar-inverse.navbar-fixed-top.dark-blue {
 footer{
   background-color: #333;
   position: fixed;
-  top: calc(100% - 40px);
-  height: 40px;
+  top: calc(100% - 60px);
+  height: 60px;
   width: 100%;
+  line-height: 60px;
+  vertical-align: middle;
   text-align: center;
   left: 0px;
   color: white;
 
+}
+#submitVotebanner{
+background-image: -webkit-linear-gradient(top,#d95347 0,#d95347 100%);
+background-image: -o-linear-gradient(top,#d95347 0,#d95347 100%);
+background-image: -webkit-gradient(linear,left top,left bottom,from(#d95347),to(#d95347));
+background-image: linear-gradient(to bottom,#d95347 0,#d95347 100%);
+-webkit-appearance: none;
+text-decoration: none !important;
+cursor: pointer;
+display: inline-block;
+border: none;
+white-space: nowrap;
+letter-spacing: normal;
+text-align: center;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+margin-left:20px;
+background-color: #d95347!important;
+color: #fff;
+}
+.row > .col-lg-12{
+  position: absolute;
+  top: 0;
 }
