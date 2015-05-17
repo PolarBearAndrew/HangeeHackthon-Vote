@@ -21,6 +21,7 @@ teamPic = multer({ dest: imgPath,
   }
 })
 router.post('/',teamPic , function (req, res, next) {
+  newTeam = req.body;
   newTeam.vote = 0;
   newTeam.createDate = now;
   // newTeam.memberCount
