@@ -19,14 +19,13 @@
           input(type="file" name="imgURL")
         .form-group.col-md-12
           label TEAM MEMBER
-        - for( x = 1; x<=6; x++ )
+        - for( x = 1; x<=4; x++ )
           .member
-            .form-group.col-md-4
-              input.form-control(name="id#{x}" type="text" placeholder="ID#{x}")
-            .form-group.col-md-4
+            .form-group.col-md-6.col-xs-6
               input.form-control(name="name#{x}" type="text" placeholder="NAME#{x}")
-            .form-group.col-md-4
+            .form-group.col-md-6.col-xs-6
               input.form-control(name="phone#{x}" type="text" placeholder="PHONE#{x}")
+        input(type="hidden" name="memberCount" value="#{x}")
         .clearfix
       .modal-footer
         button.btn.btn-default(type="button" data-dismiss="modal")

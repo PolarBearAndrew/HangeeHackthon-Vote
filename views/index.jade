@@ -7,8 +7,6 @@ block content
   .container
     .video
     .wrap
-
-        //- iframe#hero.full(src='//www.youtube.com/embed/uHgbfzNqduc?list=123?controls=0&autoplay=1&showinfo=0&iv_load_policy=3&start=0&version=3&loop=1&playlist=uHgbfzNqduc', frameborder='0')
       .row
         .layer.dot-overlay
         .col-lg-12
@@ -30,7 +28,7 @@ block content
               img.img-responsive(src= data[i].imgURL, alt='')
             - else
               img.img-responsive(src='https://hackathon.tw/img/study.jpg', alt='')
-          .works-info
-            = data[i].name
+          .works-info.text-center
+            span= data[i].name
             br
-            = data[i].projectName
+            span= data[i].projectName
