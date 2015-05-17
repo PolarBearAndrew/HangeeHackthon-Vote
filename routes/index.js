@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
 				data: result,
 		    	path: req.route
 			});
-	      	console.log('[GET] the teams info success', result);
+	      	// console.log('[GET] the teams info success', result);
 	    }
 
 	  });

@@ -191,33 +191,35 @@ router.put('/teams:id', function (req, res, next) {
 /*
  * [PUT] vote, with id
  */
-router.put('/vote:id', function (req, res, next) {
+// router.put('/vote:id', function (req, res, next) {
 
-  var query = { _id: req.params.id };
+//   var query = { _id: req.params.id };
 
-  models.Team.update(query, { $inc: { vote: 1 } }, function(err, result){
+//   models.Team.update(query, { $inc: { vote: 1 } }, function(err, result){
 
-    if (err) {
-      console.log('[PUT] vote, FAIL, err ->', err);
-      res.json({ err: err });
+//     if (err) {
+//       console.log('[PUT] vote, FAIL, err ->', err);
+//       res.json({ err: err });
 
-    } else {
-      console.log('[PUT] vote, success, result ->', result);
-      res.json({ data: result });
-    }
-  });
-});
+//     } else {
+//       console.log('[PUT] vote, success, result ->', result);
+//       res.json({ data: result });
+//     }
+//   });
+// });
 
 
 
 /*
  * [PUT] vote teamSSSS, with id[]
  */
-router.put('/voteS', function (req, res, next) {
+router.put('/vote/s', function (req, res, next) {
 
-  var query = { _id: req.params.id };
+  console.log('data', req.query.id);
 
-	query.forEach(function(id){
+  var query = { _id: req.body.id };
+
+	query._id.forEach(function(id){
 		models.Team.update(id, { $inc: { vote: 1 } }, function(err, result){
 
 			if (err) {

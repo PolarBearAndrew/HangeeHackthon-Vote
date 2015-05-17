@@ -37,26 +37,31 @@ $(function(){
     });
   });
 
-  $('#submitVote').click(function( event ){
+  //$('#submitVote').click(function( event ){
+  $('input[type=checkbox]').click(function( event ){
 
-    event.preventDefault();
+    //event.preventDefault();
+    var count = $('input:checked').length;
+    console.log('votes Count ', count);
 
-
-    var votes = $('input[type=checkbox]');
-
-    console.log('votes', votes)
-
-    votes = votes.map(function(input){
-
-      console.log('TEST', $(input).prop('checked'));
-
-      // if($(input).checked)
-      //   return input;
-      // else
-      //   return ;
-    });
-
-    console.log('votes', votes)
+    if( count > 5  ){
+      alert('只能五票謝謝');
+      event.preventDefault();
+    }
   });
 
+
+  $('#submitVote').click(function( event ){
+    $.ajax({
+      url: 'http://localhost:8080/api/vote/s',
+      type: 'PUT',
+      data: { id : ['5544c639b8defd741d92f081', '5544c65ab8defd741d92f082'] },
+      success: function(data){
+        console.log('vote success')
+      },
+      error: function(err){
+        console.log('err', err)
+      }
+    });
+  });
 })
