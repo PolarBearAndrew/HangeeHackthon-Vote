@@ -1,7 +1,9 @@
 extends layout
 
 block content
-
+  .videoarea
+    video#video-background(autoplay='', loop='', poster='', muted='')
+          source(src='https://d3mlfyygrfdi2i.cloudfront.net/cc51/au-nz-4eva.mp4', type='video/mp4')
   .container
     .video
     .wrap
@@ -15,7 +17,7 @@ block content
             | Hackathon Taiwan 作品
             br
             small 請投下您神聖的票
-             button#submitVotebanner.btn.btn-primary.tab(onclick="") 送出投票
+             button#submitVotebanner.btn.btn-primary.tab(onclick="") 開始投票
       - for (var i = 0; i < data.length; i++)
         - if( i %4 == 0 )
           .row

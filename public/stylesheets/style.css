@@ -32,20 +32,28 @@ a {
   border: 3px solid rgba(255,255,255,0);
   transition: all .2s linear;
   border-radius: 10px;
+  box-shadow: 0px 0 0px #f5f5f5, 0 0 1px #f5f5f5, 1px 0 0px #f5f5f5, 0 5px 21px #C3C3C3;
+}
+.team-box img:hover{
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out
 }
 input[type=checkbox] {
     display: none;
 }
 input[type=checkbox]:checked + label i.glyphicon-thumbs-up{
-  background:#2ecc71;
+  background:#d95347;
   color:#fff;
   cursor:pointer;
 }
 input[type=checkbox]:checked + label + a img{
-  border: 3px solid #2ecc71;
+  border: 3px solid #d95347;
 }
 .up:hover{
-  background:#2ecc71;
+  background:#d95347;
   color:#fff;
   cursor:pointer;
 }
@@ -63,11 +71,11 @@ input[type=checkbox]:checked + label + a img{
 .tab{
   margin-right: 5px;
 }
-.wrap {
+/*.wrap {
   position: relative;
   height: 500px;
   overflow: hidden;
-}
+}*/
 .wrap .full {
   -moz-transform: translate3d(-17%, -15%, 0);
   -webkit-transform: translate3d(-17%, -15%, 0);
@@ -78,8 +86,8 @@ input[type=checkbox]:checked + label + a img{
   -webkit-filter: brightness(0.5) grayscale(0.7) blur(2px);
 }
 .dot-overlay {
-  background-image: url(../images/dot.png);
-  max-height:500px;
+  background-image: url(../images/dot.png) ;
+  height:500px;
 }
 .layer {
   top: 0;
@@ -93,7 +101,7 @@ input[type=checkbox]:checked + label + a img{
 }
 h1.page-header{
   color:#fff;
-  font-size:80px;
+  font-size:500%;
   padding:50px;
   text-shadow: 3px 3px 3px rgba(24, 15, 15, 0.5);
   position: absolute;
@@ -155,4 +163,126 @@ color: #fff;
 .row > .col-lg-12{
   position: absolute;
   top: 0;
+}
+
+.navbar-inverse {
+  background-image: -webkit-linear-gradient(top,#203349 0,#203349 100%);
+  background-image: -o-linear-gradient(top,#203349 0,#203349 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#203349),to(#203349));
+  background-image: linear-gradient(to bottom,#203349 0,#203349 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+}
+.navbar-brand{
+  color:#fff!important;
+}
+.video-background{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+}
+video#video-background{
+  width: 100%;
+  min-width:470px;
+}
+.videoarea{
+  height: 500px;
+  overflow: hidden;
+  margin-bottom: 15px;
+
+}
+@media (min-width:250px) and (max-width: 480px) {
+  .videoarea{
+  height:250px!important;
+  }
+  .dot-overlay {
+  background-image: url(../images/dot.png) ;
+  height:250px!important;
+  }
+  h1.page-header{
+  color:#fff;
+  font-size:30px;
+  margin-top: 40px
+  padding:0px;
+  text-shadow: 3px 3px 3px rgba(24, 15, 15, 0.5);
+  position: absolute;
+  top: 0;
+  }
+  .page-header{
+  margin:10px 0 0px;
+  }
+}
+@media (min-width: 582) and (max-width: 660px){
+  .dot-overlay {
+  background-image: url(../images/dot.png) ;
+  height:330px!important;
+  }
+  .dot-overlay {
+  background-image: url(../images/dot.png) ;
+  height:300px;
+  }
+}
+@media (min-width: 482px) and (max-width: 767px){
+  .videoarea{
+  height:360px;
+  }
+  .dot-overlay {
+  background-image: url(../images/dot.png) ;
+  height:360px;
+  }
+  h1.page-header{
+  color:#fff;
+  font-size:30px;
+  margin-top: 40px
+  padding:0px;
+  text-shadow: 3px 3px 3px rgba(24, 15, 15, 0.5);
+  position: absolute;
+  top: 0;
+  }
+  .page-header{
+  margin:10px 0 0px;
+  }
+}
+@media (min-width: 768px)and (max-width:991px) {
+   h1.page-header{
+  color:#fff;
+  font-size:70px;
+  margin-top: 40px
+  padding:0px;
+  text-shadow: 3px 3px 3px rgba(24, 15, 15, 0.5);
+  position: absolute;
+  top: 0;
+  }
+  .page-header{
+  margin:10px 0 0px;
+  }
+  .dot-overlay {
+  background-image: url(../images/dot.png) ;
+  height:450px;
+  }
+}
+@media (min-width: 992px)and (max-width:1199px) {
+
+   h1.page-header{
+  color:#fff;
+  font-size:80px;
+  margin-top: 40px
+  padding:0px;
+  text-shadow: 3px 3px 3px rgba(24, 15, 15, 0.5);
+  position: absolute;
+  top: 0;
+  }
+  .page-header{
+  margin:10px 0 0px;
+  }
+}
+
+@media (min-width: 1200px) {
+
 }
