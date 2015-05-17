@@ -91,29 +91,29 @@ router.get('/create/test', function (req, res, next) {
  *
  * [POST] create a team
  */
-router.post('/team', function (req, res, next) {
+// router.post('/team', function (req, res, next) {
 
-	var newTeam = req.body.team;
+// 	var newTeam = req.body.team;
 
-	//console.log('team', team);
+// 	//console.log('team', team);
 
-	team.createDate = Date.now();
-	team.vote = 0;
+// 	team.createDate = Date.now();
+// 	team.vote = 0;
 
-	//add this info to DB
-  var team = new models.Team(newTeam);
+// 	//add this info to DB
+//   var team = new models.Team(newTeam);
 
-  team.save(function (err, result) {
-    if (err) {
-      console.log('[POST] create group FAIL, err ->', err);
+//   team.save(function (err, result) {
+//     if (err) {
+//       console.log('[POST] create group FAIL, err ->', err);
 
-    } else {
-			res.json( result );
-      console.log('[POST] create group success, result ->', result);
-    }
-  });
+//     } else {
+// 			res.json( result );
+//       console.log('[POST] create group success, result ->', result);
+//     }
+//   });
 
-});
+// });
 
 
 

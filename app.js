@@ -12,6 +12,7 @@ var results = require('./routes/results');
  * teams
  */
 var teams = require('./routes/teams');
+var createTeam = require('./routes/createTeam');
 
 //var app = express();
 var app = module.exports.app = exports.app = express();
@@ -32,6 +33,7 @@ app.use(express.static(__dirname + '/bower_components'));
 app.use('/', index);
 app.use('/api', teams);
 app.use('/results', results);
+app.use('/createTeam', createTeam);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

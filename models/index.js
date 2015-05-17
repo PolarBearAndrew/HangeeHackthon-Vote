@@ -10,9 +10,7 @@ var Team = new mongoose.Schema({
 	name : { type: String },
 	imgURL : { type: String },
 	projectName: { type: String },
-	projectDetail : { type: String },
 	createDate : { type: Date },
-	github: { type: String },
 	vote: { type: Number },
 	members : []
 });
