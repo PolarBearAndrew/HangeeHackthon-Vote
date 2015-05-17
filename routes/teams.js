@@ -212,7 +212,7 @@ router.put('/teams:id', function (req, res, next) {
  * [PUT] vote teamSSSS, with id[]
  */
 router.put('/vote/s', function (req, res, next) {
-
+  console.log(req.body)
   var query = req.body['id[]'] ;
 
 	query.forEach(function(id){
