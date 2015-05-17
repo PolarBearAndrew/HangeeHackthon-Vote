@@ -15,9 +15,7 @@ router.get('/create/us', function (req, res, next) {
     name: 'WashWashSeelp',
     imgURL: 'https://hackathon.tw/img/study.jpg',
 		projectName: 'hackthon vote',
-		projectDetail : 'For hackthon Vote ',
 		createDate : Date.now(),
-		github: 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
 		vote: 12,
 		members :[
 			{ id : 'A001', name : 'Webber', phone : '0901000000' },

@@ -21,6 +21,23 @@ teamPic = multer({ dest: imgPath,
   }
 })
 router.post('/',teamPic , function (req, res, next) {
+  newTeam.vote = 0;
+  newTeam.createDate = now;
+  // newTeam.memberCount
+  var i = 1;
+  newTeam.members = [];
+  while(i < newTeam.memberCount){ //newTeam.memberCount = 5
+    if(newTeam["name"+i]){
+      member = {
+        name: newTeam["name"+i],
+        phone: newTeam["phone"+i],
+      }
+      newTeam.members.push(member);
+    }
+    i++;
+  }
+    
+
   var team = new models.Team(newTeam);
 
   team.save(function (err, result) {
