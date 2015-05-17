@@ -215,25 +215,22 @@ router.put('/teams:id', function (req, res, next) {
  */
 router.put('/vote/s', function (req, res, next) {
 
-  console.log('data', req.query.id);
+  var query = req.body['id[]'] ;
 
-  var query = { _id: req.body.id };
-
-	query._id.forEach(function(id){
-		models.Team.update(id, { $inc: { vote: 1 } }, function(err, result){
+	query.forEach(function(id){
+		models.Team.update({_id : id}, { $inc: { vote: 1 } }, function(err, result){
 
 			if (err) {
 				console.log('[PUT] voteS, FAIL, err ->', err);
-				res.json({ err: err });
+				//res.json({ err: err });
 
 			} else {
-				console.log('[PUT] voteS, success, result ->', result);
-				res.json({ data: result });
+				console.log('[PUT] voteS, success, result ->',id , result);
+				//res.json({ data: result });
 			}
 		});
 	});
-
-
+  res.end();
 });
 
 
