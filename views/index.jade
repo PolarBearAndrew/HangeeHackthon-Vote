@@ -7,8 +7,6 @@ block content
     .wrap
 
         //- iframe#hero.full(src='//www.youtube.com/embed/uHgbfzNqduc?list=123?controls=0&autoplay=1&showinfo=0&iv_load_policy=3&start=0&version=3&loop=1&playlist=uHgbfzNqduc', frameborder='0')
-
-
       .row
         .layer.dot-overlay
         .col-lg-12
@@ -22,7 +20,7 @@ block content
         - if( i %4 == 0 )
           .row
         label.col-md-3.portfolio-item.team-box(for="slideOne"+i)
-          input(type="checkbox" value="None" id="slideOne"+i name="check")
+          input(type="checkbox" value="None" id="slideOne"+i name="check"  data-id="#{data[i]._id}")
           label.checkbox(for="slideOne"+i)
             i.glyphicon.glyphicon-thumbs-up.up
           a

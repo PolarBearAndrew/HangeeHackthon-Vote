@@ -42,7 +42,7 @@ $(function(){
 
     //event.preventDefault();
     var count = $('input:checked').length;
-    console.log('votes Count ', count);
+    //console.log('votes Count ', count);
 
     if( count > 5  ){
       alert('只能五票謝謝');
@@ -53,7 +53,16 @@ $(function(){
 
   $('#submitVote').click(function( event ){
 
-    var data = ['55580d3ba4c4bf901e4fcdfb', '55580d47a4c4bf901e4fcdff'];
+    //var data = ['55580d3ba4c4bf901e4fcdfb', '55580d47a4c4bf901e4fcdff'];
+    var inputs = $('input:checked');
+    var data = [];
+
+    for(var i = 0; i < inputs.length; i++){
+       // console.log(data[i]);
+       data.push($(inputs[i]).attr('data-id'));
+    }
+
+    //console.log('data-id', data);
 
     $.ajax({
       url: 'http://localhost:8080/api/vote/s',
@@ -62,7 +71,8 @@ $(function(){
         "id" : data
       },
       success: function(data){
-        console.log('vote success')
+        //console.log('vote success')
+        window.location = "http://localhost:8080/results";
       },
       error: function(err){
         console.log('err', err)
