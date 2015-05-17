@@ -71,14 +71,14 @@ $(function(){
     //console.log('data-id', data);
 
     $.ajax({
-      url: 'http://localhost:8080/api/vote/s',
+      url: '/api/vote/s',
       type: 'PUT',
       data: {
         "id" : data
       },
       success: function(data){
         //console.log('vote success')
-        window.location = "http://localhost:8080/results";
+        window.location = "/results";
 
         localStorage.setItem("hackathonVote", "true");
 
