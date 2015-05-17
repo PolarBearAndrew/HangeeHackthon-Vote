@@ -13,13 +13,12 @@ block content
             | Hackathon Taiwan 作品
             br
             small 請投下您神聖的票
-      - var x = 0
       - for (var i = 0; i < data.length; i++)
         - if( i %4 == 0 )
           .row
-        label.col-md-3.portfolio-item.team-box(for="slideOne"+x+i)
-          input(type="checkbox" value="None" id="slideOne"+x+i name="check")
-          label.checkbox(for="slideOne"+x+i)
+        label.col-md-3.portfolio-item.team-box(for="slideOne"+i)
+          input(type="checkbox" value="None" id="slideOne"+i name="check")
+          label.checkbox(for="slideOne"+i)
             i.glyphicon.glyphicon-thumbs-up.up
           a
             - if( data[i].imgURL )

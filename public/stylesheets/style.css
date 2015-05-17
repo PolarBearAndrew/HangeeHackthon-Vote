@@ -117,3 +117,15 @@ nav.gag-nav.navbar.navbar-inverse.navbar-fixed-top.dark-blue {
   height:400px;
   margin:100px 0;
 }
+
+footer{
+  background-color: #333;
+  position: fixed;
+  top: calc(100% - 40px);
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  left: 0px;
+  color: white;
+
+}
