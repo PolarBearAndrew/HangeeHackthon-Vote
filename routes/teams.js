@@ -13,7 +13,7 @@ router.get('/create/test', function (req, res, next) {
   //new entity
   var team = new models.Team({
     name: 'WashWashSeelp',
-    imgURL: 'testImg.jpg',
+    imgURL: 'https://hackathon.tw/img/study.jpg',
 		projectName: 'hackthon vote',
 		projectDetail : 'For hackthon Vote ',
 		createDate : Date.now(),
