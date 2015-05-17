@@ -1,18 +1,20 @@
 $(function(){
  var player;
 
-  function onYouTubeIframeAPIReady() {
-      player = new YT.Player('ytplayer', {
-          events: {
-              'onReady': onPlayerReady
-          }
-      });
-  }
+  // function onYouTubeIframeAPIReady() {
+  //     player = new YT.Player('ytplayer', {
+  //         events: {
+  //             'onReady': onPlayerReady
+  //         }
+  //     });
+  // }
 
-  function onPlayerReady(event) {
-      player.mute();
-      player.playVideo();
-  }
+  // function onPlayerReady(event) {
+  //     player.setVolume(0);
+  //     player.mute();
+  //     player.playVideo();
+  //     console.log('123123123');
+  // }
 
   $( "#creatTeam" ).submit(function( event ) {
 
