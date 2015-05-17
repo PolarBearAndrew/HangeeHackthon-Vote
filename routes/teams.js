@@ -8,7 +8,7 @@ var models = require('../models');
  *
  * [GET] test create team
  */
-router.get('/create/test', function (req, res, next) {
+router.get('/create/us', function (req, res, next) {
 
   //new entity
   var team = new models.Team({
@@ -38,6 +38,47 @@ router.get('/create/test', function (req, res, next) {
     } else {
       console.log('[TEST] create group success, result ->', result);
 			res.json( result );
+    }
+  });
+
+});
+
+var dirtyTestData = {
+  teamCount : 0
+}
+
+router.get('/create/test', function (req, res, next) {
+
+  var testIndex = dirtyTestData.teamCount++;
+
+  //new entity
+  var team = new models.Team({
+    name: 'TeamName' + testIndex,
+    imgURL: 'https://hackathon.tw/img/study.jpg',
+    projectName: 'projectName' + testIndex,
+    projectDetail : 'ForWhat XXXXXX' + testIndex,
+    createDate : Date.now(),
+    github: 'https://github.com/hey-hackthon/HangeeHackthon-Vote',
+    vote: Math.floor((Math.random() * 15) + 1),
+    members :[
+      { id : 'A001', name : 'Webber', phone : '0901000000' },
+      { id : 'A002', name : 'Bejamin', phone : '0902000000' },
+      { id : 'A003', name : 'Simon', phone : '0903000000' },
+      { id : 'A004', name : 'Dca', phone : '0904000000' },
+      { id : 'A005', name : 'Vincent', phone : '0905000000' },
+      { id : 'A006', name : 'Andrew', phone : '0906000000' }
+    ]
+  });
+
+  //save it
+  team.save(function (err, result) {
+    if (err) {
+      console.log('[TEST] create group FAIL, err ->', err);
+      //res.json( err );
+
+    } else {
+      console.log('[TEST] create group success, result ->', result);
+      res.json( result );
     }
   });
 
