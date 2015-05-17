@@ -106,3 +106,6 @@ nav.gag-nav.navbar.navbar-inverse.navbar-fixed-top.dark-blue {
   background-color: #203349;
   border-color: #576676;
 }
+.container{
+  background-color: red;
+}

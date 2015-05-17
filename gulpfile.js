@@ -13,7 +13,7 @@ var livereload = require( 'gulp-livereload' );
 var options = {
   path: 'app.js'
 };
- 
+
 var serverFiles = [
   'app.js',
   'routes/*.js',
@@ -35,7 +35,7 @@ var serverFiles = [
 gulp.task( 'server:start', function() {
     server.listen( options, livereload.listen );
 });
- 
+
 gulp.task( 'server:restart', function() {
     gulp.watch( [ 'app.js' ], server.restart );
 });
