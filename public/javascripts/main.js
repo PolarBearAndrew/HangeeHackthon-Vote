@@ -1,5 +1,5 @@
 $(function(){
- var player;
+  //var player;
 
   // function onYouTubeIframeAPIReady() {
   //     player = new YT.Player('ytplayer', {
@@ -36,4 +36,27 @@ $(function(){
       $( "#result" ).empty().append( content );
     });
   });
+
+  $('#submitVote').click(function( event ){
+
+    event.preventDefault();
+
+
+    var votes = $('input[type=checkbox]');
+
+    console.log('votes', votes)
+
+    votes = votes.map(function(input){
+
+      console.log('TEST', $(input).prop('checked'));
+
+      // if($(input).checked)
+      //   return input;
+      // else
+      //   return ;
+    });
+
+    console.log('votes', votes)
+  });
+
 })
