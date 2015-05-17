@@ -52,10 +52,15 @@ $(function(){
 
 
   $('#submitVote').click(function( event ){
+
+    var data = ['55580d3ba4c4bf901e4fcdfb', '55580d47a4c4bf901e4fcdff'];
+
     $.ajax({
       url: 'http://localhost:8080/api/vote/s',
       type: 'PUT',
-      data: { id : ['5544c639b8defd741d92f081', '5544c65ab8defd741d92f082'] },
+      data: {
+        "id" : data
+      },
       success: function(data){
         console.log('vote success')
       },
