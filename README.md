@@ -1,10 +1,10 @@
 # HangeeHackthon-Vote
 
-For Hackthon 6th final vote. 
+For Hackthon 7th final vote. 
 
 ## Flow
 
-![流程圖](public/images/flow.png)
+<!--![流程圖](public/images/flow.png)-->
 
 ## pre-install
 
@@ -42,10 +42,8 @@ team {
 	name : String,
 	imgURL : String,
 	projectName : String,
-	projectDetail : String,
-	github : String,
 	members : [
-			{ id : String, name : String, phone : String }, ...	
+			{ name : String, phone : String }, ...	
 	],
 }
 ```
@@ -59,13 +57,13 @@ team {
 
 
 
-* get the teams & team's project info, with id
+* ~~get the teams & team's project info, with id (沒用到~~
 ```
 [GET] api/team:id
 ```
 
 
-* modify group & porject info, with id
+* ~~modify group & porject info, with id (沒用到~~
 ```
 [PUT] api/teams:id
 ```
@@ -84,13 +82,13 @@ team {
 >	input date: id Array
 
 
-* unVote, with id
+* ~~unVote, with id (沒用到~~
 ```
 [PUT] /unVote:id
 ```
 
 
-* remove a team
+* ~~remove a team (沒用到~~
 ```
 [DELETE] /unVote:id
 ```
