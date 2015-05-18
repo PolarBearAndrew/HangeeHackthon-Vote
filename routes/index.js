@@ -4,7 +4,7 @@ var models = require('../models');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	console.log(req.route);
+	//console.log(req.route);
 	models.Team.find( {}, function (err, result) {
     if (err) {
       console.log('[GET] the teams info FAIL, err ->', err);

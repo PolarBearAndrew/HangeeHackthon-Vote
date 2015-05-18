@@ -223,7 +223,7 @@ router.put('/vote/s', function (req, res, next) {
 				//res.json({ err: err });
 
 			} else {
-				console.log('[PUT] voteS, success, result ->',id , result);
+				//console.log('[PUT] voteS, success, result ->',id , result);
 				//res.json({ data: result });
 			}
 		});

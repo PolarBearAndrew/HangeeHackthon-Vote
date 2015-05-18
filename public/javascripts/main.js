@@ -61,7 +61,7 @@ $(function(){
 
     //var data = ['55580d3ba4c4bf901e4fcdfb', '55580d47a4c4bf901e4fcdff'];
     var inputs = $('input:checked');
-    var data = [];
+    var data = [''];
 
     for(var i = 0; i < inputs.length; i++){
        // console.log(data[i]);
